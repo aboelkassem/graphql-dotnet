@@ -1,3 +1,5 @@
+using GraphQL.API.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateSlimBuilder(args);
@@ -6,6 +8,8 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
 });
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Shop")));
 
 var app = builder.Build();
 
@@ -23,6 +27,10 @@ todosApi.MapGet("/{id}", (int id) =>
     sampleTodos.FirstOrDefault(a => a.Id == id) is { } todo
         ? Results.Ok(todo)
         : Results.NotFound());
+
+var sp = builder.Services.BuildServiceProvider();
+var dbContext = sp.GetRequiredService<ApplicationDbContext>();
+dbContext.Seed();
 
 app.Run();
 
