@@ -7,9 +7,9 @@ namespace GraphQL.API.GraphQL.Types
     {
         public ProductType()
         {
-            Field(x => x.Id);
-            Field(x => x.Name);
-            Field(x => x.Description);
+            Field(x => x.Id).Description("The Id of the product");
+            Field(x => x.Name).Description("The name of the product");
+            Field(x => x.Description).Description("The description of the product");
         }
     }
 }
