@@ -1,2 +1,2 @@
 # graphql-dotnet
-Sample for building grphql endpoints using APS.NET Core
+Sample for building GraphQL endpoints using APS.NET Core
