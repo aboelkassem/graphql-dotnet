@@ -8,8 +8,8 @@ namespace GraphQL.API.GraphQL
         public ShopSchema(IServiceProvider provider) : base(provider)
         {
             Query = provider.GetRequiredService<ShopQuery>(); // This API Supports Data retrieval
-            //Mutation = provider.GetRequiredService<MountainTrackerMutation>();
-            //Subscription = provider.GetRequiredService<MoutainTrackerSubscription>();
+            //Mutation = provider.GetRequiredService<ShopMutation>();
+            //Subscription = provider.GetRequiredService<ShopSubscription>();
         }
     }
 }
