@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GraphQL.API.Models;
 
-public class Product
+public class ProductEntity
 {
     public int Id { get; set; }
 
@@ -21,5 +21,5 @@ public class Product
     [StringLength(100)]
     public string PhotoFileName { get; set; } = string.Empty;
 
-    public ICollection<ProductReview> ProductReviews { get; set; } = [];
+    public ICollection<ProductReviewEntity> ProductReviews { get; set; } = [];
 }

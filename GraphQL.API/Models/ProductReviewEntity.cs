@@ -1,6 +1,6 @@
 ﻿namespace GraphQL.API.Models;
 
-public class ProductReview
+public class ProductReviewEntity
 {
     public int Id { get; set; }
 
@@ -10,5 +10,5 @@ public class ProductReview
 
     public int ProductId { get; set; }
 
-    public Product Product { get; set; } = default!;
+    public ProductEntity Product { get; set; } = default!;
 }
