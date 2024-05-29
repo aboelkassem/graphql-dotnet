@@ -22,7 +22,7 @@ namespace GraphQL.API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("GraphQL.API.Models.Product", b =>
+            modelBuilder.Entity("GraphQL.API.Models.ProductEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace GraphQL.API.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("GraphQL.API.Models.ProductReview", b =>
+            modelBuilder.Entity("GraphQL.API.Models.ProductReviewEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,9 +90,9 @@ namespace GraphQL.API.Migrations
                     b.ToTable("ProductReviews");
                 });
 
-            modelBuilder.Entity("GraphQL.API.Models.ProductReview", b =>
+            modelBuilder.Entity("GraphQL.API.Models.ProductReviewEntity", b =>
                 {
-                    b.HasOne("GraphQL.API.Models.Product", "Product")
+                    b.HasOne("GraphQL.API.Models.ProductEntity", "Product")
                         .WithMany("ProductReviews")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -101,7 +101,7 @@ namespace GraphQL.API.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("GraphQL.API.Models.Product", b =>
+            modelBuilder.Entity("GraphQL.API.Models.ProductEntity", b =>
                 {
                     b.Navigation("ProductReviews");
                 });
