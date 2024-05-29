@@ -14,7 +14,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services
         .AddScoped(typeof(IRepository<,>), typeof(Repository<,>))
-        .AddScoped<IProductRepository, ProductRepository>()
         .AddScoped<IProductReviewRepository, ProductReviewRepository>();
 
 builder.Services.AddGraphQlAPI(builder.Configuration);
