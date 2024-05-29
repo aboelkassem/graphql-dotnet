@@ -44,6 +44,7 @@ namespace GraphQL.API.StartupExtensions
                 config.HandleWebSockets = true;
                 config.EnableBatchedRequests = true;
             });
+
             if (config.ShowUi)
             {
                 app.UseGraphQLPlayground(config.UiEndpoint, new()
@@ -51,6 +52,7 @@ namespace GraphQL.API.StartupExtensions
                     GraphQLEndPoint = config.GraphQlApiEndpoint,
                 });
             }
+
             if (config.ShowVisualNodes)
             {
                 app.UseGraphQLVoyager(config.VisualNodesEndpoint, new()
