@@ -20,7 +20,6 @@ namespace GraphQL.API.GraphQL.Queries
                     var id = context.GetArgument<int>("id");
                     return await productRepository.GetAsync(id);
                 }).Description("Get specific product by id");
-
         }
     }
 }
