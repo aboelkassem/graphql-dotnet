@@ -8,7 +8,7 @@ namespace GraphQL.API.StartupExtensions
     {
         public static IServiceCollection AddGraphQlAPI(this IServiceCollection services, ConfigurationManager configurationManager)
         {
-            //services.AddScoped<IDataLoaderContextAccessor, DataLoaderContextAccessor>();
+            services.AddScoped<IDataLoaderContextAccessor, DataLoaderContextAccessor>();
             services.AddScoped<DataLoaderDocumentListener>();
             services.AddGraphQL(builder => builder
                 .ConfigureExecutionOptions(options =>
